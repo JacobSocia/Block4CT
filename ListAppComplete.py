@@ -9,6 +9,7 @@ Program Goals:
 #create functions that will perform those actions above
 import random
 myList = []
+unique_List = []
 
 def mainProgram():
     while True:
@@ -18,10 +19,12 @@ def mainProgram():
             choice = input("""1. Add to list,
 2. Add a bunch o' numbers
 3. Return the value at an index position
-4. Print contents of list
-5. Random Choice
-6. Linear Search
-7. End Program  """)
+4. Print List (sorted)
+5. Print List (unsorted)
+6. Random Search
+7. Linear Search
+8. Print Lists
+9. End Program  """)
             if choice == "1":
                 addToList()
             elif choice == "2":
@@ -29,11 +32,16 @@ def mainProgram():
             elif choice == "3":
                 indexValues()
             elif choice == "4":
-                print(myList)
-            elif choice == "5":
-                randomSearch()
+                sortList(myList)
             elif choice == "6":
+                randomSearch()
+            elif choice == "7":
                 linearSearch()
+            elif choice == "5":
+                print(myList)
+            elif choice == "8":
+                printLists()
+                
             else:
                 print("The program will now end.  ")
                 break
@@ -53,7 +61,25 @@ def addABunch():
     for x in range(0, int(numToAdd)):
         myList.append(random.randint(0, int(numRange)))
     print("Your list is now complete!")
-   
+
+
+def sortList(myList):
+    for x in myList:
+        if x not in unique_List:
+            unique_List.append(x)
+    unique_List.sort()
+    showMe = input("Wanna see your new list? Y/N    ")
+    if showMe.lower() == "y":
+        print(unique_List)
+
+def printLists():
+    if len(unique_List) == 0:
+        print(myList)
+    else:
+        whichOne = input("Which list? Sorted or un-sorted?      ")
+        if whichOne.lower() == "Sorted":
+            print(unique_List)
+
 def indexValues():
     indexPos = input("At what index position would you like to look?  ")
     print(myList[int(indexPos)])
