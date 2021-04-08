@@ -25,7 +25,8 @@ def mainProgram():
 7. Linear Search
 8. Print Lists
 9. Recursive Binary Search
-10. End Program  """)
+10. Iterive Binary Search
+11. End Program  """)
             if choice == "1":
                 addToList()
             elif choice == "2":
@@ -42,6 +43,13 @@ def mainProgram():
                 print(myList)
             elif choice == "8":
                 printLists()
+            elif choice == "10":
+                binSearch = input("What number are you looking for?   ")
+                result = iteriveBinarySearch(unique_List, 0, len(unique_List, int(binSearch))
+                if result != -1:
+                    print("Your number is at index position {}".format(result))
+                else:
+                    print("Your number isnt here")
             elif choice == "9":
                 binSearch = input("What number are you looking for?   ")
                 recursiveBinarySearch(unique_List, 0, len(unique_List)-1, int(binSearch))
@@ -112,6 +120,25 @@ def recursiveBinarySearch(unique_List, low, high, x):
             return recursiveBinarySearch(unique_List, mid + 1, high, x)
     else:
         print("Your number isn't here")
+
+def iteriveBinarySearch(unique_List, x):
+    low = 0
+    high = len(unique_List) - 1
+    mid = 0
+
+    while low >= high:
+        mid = (high+low) // 2
+
+        if unique_List[mid] < x:
+            low = mid + 1
+
+        elif unique_List[mid] > x:
+            high = mid -1
+
+        else:
+            return mid
+    return -1
+    
 
 if __name__ == "__main__":
     mainProgram()
