@@ -10,47 +10,46 @@ Program Goals:
 import random
 myList = []
 unique_List = []
-
-def mainProgram():
+def programStart():
     while True:
         try:
-            print("Hello, there! Let's work with lists!")
+            print("how about we start with making a list")
+           numToAdd = input("How many integers do you want to add?  ")
+           numRange = input("And how high would you like these numbers to go?  ")
+           for x in range(0, int(numToAdd)):
+               myList.append(random.randint(0, int(numRange)))
+               print("Your list is now complete!")
             print("Choose one of the following options. Type a number ONLY!")
             choice = input("""1. Add to list,
-2. Add a bunch o' numbers
-3. Return the value at an index position
-4. Print List (sorted)
-5. Print List (unsorted)
-6. Random Search
-7. Linear Search
-8. Print Lists
-9. Recursive Binary Search
-10. Iterive Binary Search
-11. End Program  """)
+2. Return the value at an index position
+3. Print List
+4. Random Search
+5. Linear Search
+6. Print Lists
+7. Recursive Binary Search
+8. Iterive Binary Search
+9. End Program  """)
+            
             if choice == "1":
                 addToList()
             elif choice == "2":
-                addABunch()
-            elif choice == "3":
                 indexValues()
-            elif choice == "4":
+            elif choice == "3":
                 sortList(myList)
-            elif choice == "6":
+            elif choice == "4":
                 randomSearch()
-            elif choice == "7":
-                linearSearch()
             elif choice == "5":
-                print(myList)
-            elif choice == "8":
+                linearSearch()
+            elif choice == "6":
                 printLists()
-            elif choice == "10":
+            elif choice == "8":
                 binSearch = input("What number are you looking for?   ")
                 result = iteriveBinarySearch(unique_List, 0, len(unique_List, int(binSearch))
                 if result != -1:
                     print("Your number is at index position {}".format(result))
                 else:
                     print("Your number isnt here")
-            elif choice == "9":
+            elif choice == "7":
                 binSearch = input("What number are you looking for?   ")
                 recursiveBinarySearch(unique_List, 0, len(unique_List)-1, int(binSearch))
                 
